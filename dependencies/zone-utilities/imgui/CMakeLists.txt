@@ -12,6 +12,6 @@ SET(imgui_headers
 	stb_truetype.h
 )
 
-ADD_LIBRARY(imgui ${imgui_sources} ${imgui_headers})
+ADD_LIBRARY(zu_imgui ${imgui_sources} ${imgui_headers})
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)

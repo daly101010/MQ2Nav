@@ -1,0 +1,56 @@
+﻿================================================================
+VCXPROJ TO CMAKE CONVERSION ANALYSIS
+================================================================
+Project: MQ2Nav
+Source: G:\Macroquest\src\plugins\MQ2Nav\plugin\MQ2Nav.vcxproj
+Generated: 2026-04-22 15:27:00
+
+================================================================
+SUCCESSFULLY CONVERTED
+================================================================
++ Source files: 16
++ Header files: 22
++ Other files: 3
++ Compiler/linker settings extracted
++ Project references: 3
++ Pre-build events: 1
+
+================================================================
+PARTIALLY CONVERTED (May Need Manual Adjustment)
+================================================================
+(none)
+
+================================================================
+NOT CONVERTED (Requires Manual Implementation)
+================================================================
+(none)
+
+================================================================
+WARNINGS
+================================================================
+(none)
+
+================================================================
+PROPS FILES DETECTED
+================================================================
+  - $([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), src\Plugin.props))\src\Plugin.props
+  - ..\Properties.props
+
+================================================================
+SUMMARY
+================================================================
+Total source files: 16
+Excluded files: 0
+Project references: 3
+Configurations with definitions: 0
+Configurations with linker options: 0
+Props files found: 2
+
+================================================================
+NEXT STEPS
+================================================================
+1. Review the generated CMakeLists.txt file
+2. Test build with all configurations
+3. Address items in NOT CONVERTED section
+4. Verify preprocessor definitions match vcxproj
+5. Check that all dependencies are linked correctly

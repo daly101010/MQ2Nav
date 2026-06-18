@@ -1,0 +1,58 @@
+﻿================================================================
+VCXPROJ TO CMAKE CONVERSION ANALYSIS
+================================================================
+Project: MQ2Nav_MeshGenerator
+Source: G:\Macroquest\src\plugins\MQ2Nav\meshgen\MeshGenerator.vcxproj
+Generated: 2026-04-22 15:26:59
+
+================================================================
+SUCCESSFULLY CONVERTED
+================================================================
++ Precompiled source: pch.cpp
++ Source files: 19
++ Header files: 20
++ Other files: 2
++ Compiler/linker settings extracted
++ Project references: 4
++ Target name customization detected
++ Precompiled header: pch.h
+
+================================================================
+PARTIALLY CONVERTED (May Need Manual Adjustment)
+================================================================
+(none)
+
+================================================================
+NOT CONVERTED (Requires Manual Implementation)
+================================================================
+(none)
+
+================================================================
+WARNINGS
+================================================================
+(none)
+
+================================================================
+PROPS FILES DETECTED
+================================================================
+  - $([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), src\Common.props))\src\Common.props
+  - ..\Properties.props
+
+================================================================
+SUMMARY
+================================================================
+Total source files: 19
+Excluded files: 0
+Project references: 4
+Configurations with definitions: 0
+Configurations with linker options: 0
+Props files found: 2
+
+================================================================
+NEXT STEPS
+================================================================
+1. Review the generated CMakeLists.txt file
+2. Test build with all configurations
+3. Address items in NOT CONVERTED section
+4. Verify preprocessor definitions match vcxproj
+5. Check that all dependencies are linked correctly

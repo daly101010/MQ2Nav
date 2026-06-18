@@ -253,13 +253,10 @@ spdlog::level::level_enum ExtractLogLevel(std::string_view input,
 	auto end = input.find_first_of(" \t\r\n", pos);
 	std::string_view fragment = input.substr(pos, (end == std::string_view::npos) ? end : end - pos);
 
-	int level = 0;
-	for (const auto& level_str : spdlog::level::level_string_views)
+	for (int level = 0; level < spdlog::level::n_levels; ++level)
 	{
-		if (level_str == fragment)
+		if (spdlog::level::to_string_view(static_cast<spdlog::level::level_enum>(level)) == fragment)
 			return static_cast<spdlog::level::level_enum>(level);
-
-		level++;
 	}
 
 	return defaultLevel;
@@ -1833,7 +1830,7 @@ void RenderNavigationOptions(NavigationOptions& opts)
 	ImGui::Combo("Log level", (int*)& opts.logLevel,
 		[](void* data, int idx, const char** out_text) -> bool
 	{
-		*out_text = spdlog::level::level_string_views[idx].data();
+		*out_text = spdlog::level::to_string_view(static_cast<spdlog::level::level_enum>(idx)).data();
 		return true;
 	}, nullptr, 7);
 

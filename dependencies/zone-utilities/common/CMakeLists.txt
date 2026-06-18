@@ -59,6 +59,7 @@ SET(common_headers
 )
 
 ADD_LIBRARY(common ${common_sources} ${common_headers})
+TARGET_COMPILE_DEFINITIONS(common PUBLIC GLM_ENABLE_EXPERIMENTAL _USE_MATH_DEFINES)
 
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)

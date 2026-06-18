@@ -4,6 +4,8 @@ SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/glfw/CMake/" "${CMAKE_SOURCE_DIR}/CMa
 
 PROJECT(EQEmuZoneUtils)
 
+ADD_DEFINITIONS(-DGLM_ENABLE_EXPERIMENTAL)
+
 IF(NOT CMAKE_BUILD_TYPE)
 	SET(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
@@ -80,9 +82,9 @@ INCLUDE_DIRECTORIES("common" "log" "imgui" "${ZLIB_INCLUDE_DIRS}" "${CMAKE_CURRE
 
 ADD_SUBDIRECTORY(common)
 ADD_SUBDIRECTORY(log)
-ADD_SUBDIRECTORY(azone)
-ADD_SUBDIRECTORY(awater)
-ADD_SUBDIRECTORY(pfs)
+# ADD_SUBDIRECTORY(azone)  # dropped: standalone EQEmu tool, not used by MQ2Nav
+# ADD_SUBDIRECTORY(awater)  # dropped: standalone EQEmu tool, not used by MQ2Nav
+# ADD_SUBDIRECTORY(pfs)  # dropped: standalone EQEmu tool, not used by MQ2Nav
 
 IF(EQEMU_ENABLE_GL)
 	OPTION(EQEMU_TARGET_GL3 "Target OpenGL 3 instead of 3.3" OFF)
@@ -100,11 +102,15 @@ IF(EQEMU_ENABLE_GL)
 	ADD_SUBDIRECTORY(dependencies)
 	ADD_SUBDIRECTORY(imgui)
 	ADD_SUBDIRECTORY(recast)
-	ADD_SUBDIRECTORY(map_view)
+	# ADD_SUBDIRECTORY(map_view)  # dropped: standalone EQEmu tool, not used by MQ2Nav
 ELSE(EQEMU_ENABLE_GL)
 	ADD_SUBDIRECTORY(dependencies)
 ENDIF(EQEMU_ENABLE_GL)
 
 IF(EQEMU_ENABLE_MAP_INFO)
-	ADD_SUBDIRECTORY(map_info)
+	# ADD_SUBDIRECTORY(map_info)  # dropped: standalone EQEmu tool, not used by MQ2Nav
 ENDIF(EQEMU_ENABLE_MAP_INFO)
+
+# Aggregate interface target linked by MQ2Nav plugin + meshgen
+ADD_LIBRARY(zone-utilities INTERFACE)
+TARGET_LINK_LIBRARIES(zone-utilities INTERFACE common log)

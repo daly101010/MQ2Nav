@@ -453,7 +453,7 @@ if (NOT LWS_WITHOUT_EXTENSIONS)
 
 		# Set the same variables as find_package would.
 		set(ZLIB_INCLUDE_DIRS ${WIN32_ZLIB_PATH})
-		get_property(ZLIB_LIBRARIES TARGET ZLIB PROPERTY LOCATION)
+		set(ZLIB_LIBRARIES $<TARGET_FILE:ZLIB>)
 		set(ZLIB_FOUND 1)
 	else()
 		find_package(ZLIB REQUIRED)
