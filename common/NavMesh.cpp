@@ -1141,7 +1141,7 @@ bool NavMesh::ExportJson(const std::string& filename, PersistedDataFields fields
 	//options.always_print_primitive_fields = true;
 
 	std::string jsonString;
-	google::protobuf::util::Status status =
+	auto status =  // protobuf v33.4: MessageToJsonString/JsonStringToMessage now return absl::Status (was util::Status)
 		google::protobuf::util::MessageToJsonString(proto, &jsonString, options);
 	if (status.ok())
 	{
@@ -1180,7 +1180,7 @@ bool NavMesh::ImportJson(const std::string& filename, PersistedDataFields fields
 	options.ignore_unknown_fields = true;
 
 	nav::NavMeshFile proto;
-	google::protobuf::util::Status status =
+	auto status =  // protobuf v33.4: MessageToJsonString/JsonStringToMessage now return absl::Status (was util::Status)
 		google::protobuf::util::JsonStringToMessage(contents,
 			&proto, options);
 	if (!status.ok())

@@ -6,6 +6,7 @@
 
 #include "plugin/MQ2Navigation.h"
 #include "../PluginAPI.h"
+#include <mq/contrib/protobuf/ProtobufLibs.h>  // pull in abseil + protobuf link deps (protobuf v33.4)
 
 PreSetup("MQ2Nav");
 PLUGIN_VERSION(1.33);
